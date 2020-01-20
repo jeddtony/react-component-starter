@@ -14,7 +14,25 @@
     "main": "lib/index.js",
     "build": "rollup -c",
     "prepublishOnly": "rm -rf lib && npm run build",
-    "postbuild": "npm pack && tar -xvzf *.tgz && rm -rf package *.tgz"
+    "postbuild": "npm pack && tar -xvzf *.tgz && rm -rf package *.tgz",
+    "cover": "nyc --reporter=lcov --reporter=text --reporter=html --require  --extension .js npm test"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageOnlyFrom": {
+      "src/components/index.js": true
+    },
+    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
+    "testFileExtensions": [
+      "es6",
+      "js"
+    ],
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "unmockedModulePathPatterns": [
+      "react"
+    ]
   },
   "peerDependencies": {
     "@emotion/core": "^10.0.27",

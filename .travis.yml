@@ -8,18 +8,10 @@ language: node_js
 #     - node_modules
 
 node_js:
-  - "8"
+  - node
 
-before_script:
-  - yarn global add nyc
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
+install: 
+  - npm ci
 
-branches:
-  only:
-    - master
-
-script: npm run test
-after_success:
-  - npm run coveralls
+script: 
+  - npm run test:coveralls 

@@ -15,7 +15,10 @@
     "build": "rollup -c",
     "prepublishOnly": "rm -rf lib && npm run build",
     "postbuild": "npm pack && tar -xvzf *.tgz && rm -rf package *.tgz",
-    "cover": "nyc --reporter=lcov --reporter=text --reporter=html --require  --extension .js npm test"
+    "cover": "nyc --reporter=lcov --reporter=text --reporter=html --require  --extension .js npm test",
+    "test-coverage": "npm test && nyc report --reporter=lcov",
+    "coveralls": "npm test && nyc report --reporter=lcov | coveralls",
+    "test-coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls"
   },
   "jest": {
     "collectCoverage": true,
@@ -51,6 +54,7 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-emotion": "^10.0.27",
     "babel-plugin-module-resolver": "^4.0.0",
+    "coveralls": "^3.0.9",
     "jest": "^24.9.0",
     "jest-emotion": "^10.0.27",
     "react-dom": "^16.12.0",

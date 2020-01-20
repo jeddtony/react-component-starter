@@ -26,9 +26,8 @@ install:
 
 script:
   - npm run test:coveralls 
-  
-after_success:
-  - npm run coveralls
+
+
 
  
   

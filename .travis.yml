@@ -8,7 +8,7 @@ language: node_js
 #     - node_modules
 
 node_js:
-  - node
+  - "8"
 
 before_script:
   - yarn global add nyc
@@ -20,14 +20,6 @@ branches:
   only:
     - master
 
-install: 
-  - npm ci
-
-
-script:
-  - npm run test:coveralls 
-
-
-
- 
-  
+script: npm run test
+after_success:
+  - npm run coveralls

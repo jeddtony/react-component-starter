@@ -18,7 +18,7 @@
     "cover": "nyc --reporter=lcov --reporter=text --reporter=html --require  --extension .js npm test",
     "test-coverage": "npm test && nyc report --reporter=lcov",
     "coveralls": "npm test && nyc report --reporter=lcov | coveralls",
-    "test-coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls"
+    "test:coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls"
   },
   "jest": {
     "collectCoverage": true,
